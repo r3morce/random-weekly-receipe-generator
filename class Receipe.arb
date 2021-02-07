@@ -1,0 +1,12 @@
+class Receipe 
+    def initialize(name, ingredients)
+        @name = name
+        @ingredients = ingredients
+    end
+    def name()
+        puts @name
+    end
+    def ingredients()
+        return @ingredients
+    end
+end

@@ -1,0 +1,12 @@
+class Ingredient
+    def initialize(name, value)
+        @name = name
+        @value = value
+    end
+    def name()
+        puts @name
+    end
+    def value()
+        puts @value
+    end
+end
