@@ -1,3 +1,4 @@
+require 'io/console'
 load "class Chef.arb"
 
 # Input
@@ -12,7 +13,17 @@ chef = Chef.new
 randomReceipes = chef.getRandomReceipes(numberOfReceipes)
 shoppingList = chef.getShoppingListFrom(randomReceipes)
 
+
 # Output
-chef.printReceipes(randomReceipes)
+printableReceipes = chef.printReceipes(randomReceipes)
 puts ""
-chef.printShoppingList(shoppingList)
+printableList = chef.printShoppingList(shoppingList)
+
+File.open("Wochenplan.txt", "w") do |file|
+
+    file.write(printableList)
+end
+        
+puts "" 
+puts "Press any key to end the script..."                                                                                                    
+STDIN.getch                                                                                                                                                                                                                       

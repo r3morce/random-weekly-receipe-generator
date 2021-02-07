@@ -45,8 +45,13 @@ class Chef
 
     def printShoppingList(shoppingList)
         puts "Das ist deine Einkaufsliste" 
+        printableList = ["Einkaufsliste:"]
         shoppingList.each do |key, value|
-            puts "\t#{key.name}: #{value} #{key.unit}" 
+            text = "\t#{key.name}: #{value} #{key.unit}" 
+            printableList.append(text)
+            puts text
         end
+        printableList.append("")
+        return printableList.join("\n")
     end
 end
