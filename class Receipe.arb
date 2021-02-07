@@ -4,7 +4,7 @@ class Receipe
         @ingredients = ingredients
     end
     def name()
-        puts @name
+        return @name
     end
     def ingredients()
         return @ingredients

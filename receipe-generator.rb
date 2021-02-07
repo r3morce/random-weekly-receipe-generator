@@ -19,7 +19,10 @@ randomReceipes = Array.new
 
 for i in 0..5
     randomIngredients = allIngredients.sample(2)
-    randomReceipes[i] = Receipe.new("Receipe No. #{i}", randomIngredients)
+    ingredientNames = randomIngredients.map { |randomIngredient| randomIngredient.name }.join("+")
+
+    receipeName = "Receipe No. #{i} (#{ingredientNames})"
+    randomReceipes[i] = Receipe.new(receipeName, randomIngredients)
 end
 
 puts randomReceipes.length 

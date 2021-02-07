@@ -4,9 +4,9 @@ class Ingredient
         @value = value
     end
     def name()
-        puts @name
+        return @name
     end
     def value()
-        puts @value
+        return @value
     end
 end
