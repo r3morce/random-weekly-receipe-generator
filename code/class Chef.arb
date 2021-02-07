@@ -38,9 +38,14 @@ class Chef
 
     def printReceipes(receipes)
         puts "Das sind deine Rezepte" 
+        printableReceipes = ["Wochenplan:"]
         receipes.each do |receipe|
-            puts "\t#{receipe.name}" 
+            text = "\t#{receipe.name}" 
+            printableReceipes.append(text)
+            puts text
         end
+        printableReceipes.append("\n")
+        return printableReceipes.join("\n")
     end
 
     def printShoppingList(shoppingList)
@@ -51,7 +56,7 @@ class Chef
             printableList.append(text)
             puts text
         end
-        printableList.append("")
+        printableList.append("\n")
         return printableList.join("\n")
     end
 end

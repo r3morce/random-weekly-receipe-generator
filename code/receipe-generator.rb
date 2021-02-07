@@ -1,4 +1,5 @@
 require 'io/console'
+require 'date'
 load "class Chef.arb"
 
 # Input
@@ -19,11 +20,16 @@ printableReceipes = chef.printReceipes(randomReceipes)
 puts ""
 printableList = chef.printShoppingList(shoppingList)
 
-File.open("Wochenplan.txt", "w") do |file|
+fileName = "Wochenplan #{Date.today}.txt"
 
+File.open(fileName, "w") do |file|
+    file.write(printableReceipes)
+end
+
+File.open(fileName, "a") do |file|
     file.write(printableList)
 end
-        
+
 puts "" 
 puts "Press any key to end the script..."                                                                                                    
 STDIN.getch                                                                                                                                                                                                                       
