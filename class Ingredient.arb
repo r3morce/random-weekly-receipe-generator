@@ -1,12 +1,16 @@
 class Ingredient
-    def initialize(name, value)
+    def initialize(name, value, unit)
         @name = name
         @value = value
+        @unit = unit
     end
     def name()
         return @name
     end
     def value()
         return @value
+    end
+    def unit()
+        return @unit
     end
 end
