@@ -2,6 +2,11 @@
 load "class Ingredient.arb"
 load "class Receipe.arb"
 
+# Input
+puts "Wie viele Rezepte sollen erstellt werden? "
+userInput = gets.chomp
+numberOfReceipes = userInput.to_i
+
 # Ingredients
 chicken = Ingredient.new("Hühnerbrust", 150, "g")
 rice = Ingredient.new("Reis", 300, "g")
@@ -18,7 +23,7 @@ riceWithChicken = Receipe.new("Rice mit Shice", [chicken, rice])
 
 randomReceipes = Array.new
 
-for i in 0..5
+for i in 0..numberOfReceipes
     randomIngredients = allIngredients.sample(2)
     ingredientNames = randomIngredients.map { |randomIngredient| randomIngredient.name }.join("+")
 
