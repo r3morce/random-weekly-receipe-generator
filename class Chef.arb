@@ -1,0 +1,52 @@
+load "class Receipe.arb"
+load "class Ingredient.arb"
+
+class Chef
+
+    def getRandomReceipes(numberOfReceipes)
+
+        randomReceipes = Array.new
+
+        for i in 0..numberOfReceipes
+            randomIngredients = $allIngredients.sample(2)
+            ingredientNames = randomIngredients.map { |randomIngredient| randomIngredient.name }.join("+")
+        
+            receipeName = "Receipe No. #{i} (#{ingredientNames})"
+            randomReceipes[i] = Receipe.new(receipeName, randomIngredients)
+        end
+
+        return randomReceipes
+    end
+
+    def getShoppingListFrom(receipes)
+
+        shoppingList = Hash.new
+
+        receipes.each do |receipe|
+            receipe.ingredients.each do |ingredient|
+                if shoppingList[ingredient].nil?
+                    shoppingList[ingredient] = ingredient.value
+                else 
+                    shoppingList[ingredient] += ingredient.value
+                end
+            end
+
+        end
+
+        return shoppingList
+    end
+
+    def printReceipes(receipes)
+        puts "Das sind deine Rezepte" 
+        receipes.each do |receipe|
+            puts "\t#{receipe.name}" 
+        end
+    end
+
+    def printShoppingList(shoppingList)
+        puts "Das ist deine Einkaufsliste" 
+        shoppingList.each do |key, value|
+            puts "\t#{key.name}: #{value} #{key.unit}" 
+        end
+    end
+end
