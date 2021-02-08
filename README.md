@@ -6,7 +6,9 @@
 * Install Ruby 2.7.X
  https://rubyinstaller.org/downloads/
 
-* run `code/receipe-generator.rb`
+* Go to folder `code`
+* run `bundle install`
+* run `bundle exec receipe-generator.rb`
 * See `Wochenplan *.txt`
 * ???
 * Profit
